@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfólio - Sua Recepcionista</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0; font-family: Arial, sans-serif; min-height: 100vh; display: flex; flex-direction: column;
+      background: #fff;
+      color: #222;
+    }
+    nav {
+      background: #222;
+      padding: 10px 20px;
+      color: white;
+      user-select: none;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    nav a {
+      color: white;
+      margin-right: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
+      color: #88cc88;
+    }
+    #content {
+      flex-grow: 1;
+      padding: 20px;
+      background: #f9f9f9;
+      overflow-y: auto;
+      min-height: 400px;
+      box-sizing: border-box;
+    }
+    /* Mensagem de erro */
+    #content p.error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <!-- Ajuste os caminhos aqui de acordo com sua estrutura real -->
+  <a href="#" data-page="src/pages/home.html" class="active">Home</a>
+  <a href="#" data-page="src/pages/quemSouEu.html">Quem sou eu</a>
+  <a href="#" data-page="src/pages/assistenteAtenas.html">Assistente Atenas</a>
+  <a href="#" data-page="src/pages/myBaseProjects.html">Documentos Padrões</a>
+  <a href="#" data-page="src/pages/controlesAPIs.html">Controles de APIs</a>
+</nav>
+
+<div id="content" tabindex="0">
+  <p>Carregando conteúdo...</p>
+</div>
+
+<script>
+  async function loadPage(url) {
+    const content = document.getElementById('content');
+    content.innerHTML = '<p>Carregando conteúdo...</p>';
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`Erro ao carregar a página: ${res.status} ${res.statusText}`);
+      const html = await res.text();
+      console.log('Página carregada:', url);
+
+      // Extrai só o conteúdo do <body> para evitar duplicação
+      const bodyContent = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+      if (bodyContent) {
+        content.innerHTML = bodyContent[1].trim();
+      } else {
+        // Se não tiver body, insere o HTML completo
+        content.innerHTML = html.trim();
+      }
+      content.focus();
+    } catch (err) {
+      console.error(err);
+      content.innerHTML = `<p class="error">${err.message}</p>`;
+    }
+  }
+
+  function setActiveLink(clickedLink) {
+    document.querySelectorAll('nav a').forEach(link => {
+      link.classList.toggle('active', link === clickedLink);
+    });
+  }
+
+  // Inicializa com a página Home carregada
+  loadPage('src/pages/home.html');
+
+  // Configura os links do menu para carregar as páginas dinamicamente
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const page = link.getAttribute('data-page');
+      loadPage(page);
+      setActiveLink(link);
+      document.getElementById('content').focus();
+    });
+  });
+</script>
+
+</body>
+</html>

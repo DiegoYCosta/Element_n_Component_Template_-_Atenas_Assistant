@@ -1,0 +1,116 @@
+/* Reset e base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Menu fixo no topo */
+nav {
+  background-color: #222;
+  color: white;
+  padding: 12px 24px;
+  display: flex;
+  gap: 32px;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.2);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #1e90ff;
+}
+
+/* Container principal centralizado */
+.container {
+  flex: 1; /* para ocupar o espaço vertical disponível */
+  max-width: 960px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Texto principal */
+.container h1 {
+  flex-basis: 100%;
+  font-size: 2.4rem;
+  margin: 0 0 16px 0;
+}
+
+.container p {
+  flex-basis: 100%;
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 0;
+}
+
+/* Imagem com legenda */
+.image-wrapper {
+  flex: 1 1 280px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.image-wrapper img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.15);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.image-wrapper img:hover {
+  transform: scale(1.05);
+}
+
+.image-caption {
+  margin-top: 12px;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.image-caption a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.image-caption a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .image-wrapper {
+    max-width: 100%;
+  }
+}
