@@ -1,11 +1,11 @@
 Element & Component Template – Atenas Assistant
 
-Este repositório reúnirá diversos elementos e componentes base, prontos para serem reutilizados em diversos projetos futuros. A ideia é centralizar modelos de títulos, planilhas, formatações de imagens para agilizara criação de projetos com uma identidade pessoal recorrente.
+Este repositório reúnirá diversos elementos e componentes base, prontos para serem reutilizados em diversos projetos futuros. A ideia é centralizar modelos de títulos, planilhas, formatações de imagens para agilizar a criação de projetos com uma identidade pessoal recorrente.
+
 
   📝 Motivação
 
-A ideia do projeto surgiu durante a elaboração de meu TCC, quando percebi que templates pré-prontos de títulos, imagens, tabelas outos elementos facilitavam a formatação dele.
-O nome se refere ao projeto principal a qual ele servirá.
+A ideia do projeto surgiu durante a elaboração de meu TCC, quando percebi que templates pré-prontos de títulos, imagens, citações, tabelas e rodapés aumentavam a produtividade.
 
   Funcionalidade Inicial
 O projeto iniciará apenas com um Formatador Padrão de Imagens estilo Wikipedia e um Formatador Padrão para Interações do Mouse com Imagens e suas Legendas para exibir ícones de ação (download, salvar como, copiar legenda).
