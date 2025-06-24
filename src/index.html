@@ -1,46 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Musical</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atenas Assistant</title>
+  <script src="./components/quadro-dinamico.js" defer></script>
+  <style>
+    html, body { margin:0; padding:0; height:100vh; overflow:hidden; }
+    iframe { position:absolute; top:0; left:0; width:100%; height:100%; }
+  </style>
 </head>
 <body>
-    <h4>Formatação de Imagem Padrão Wikipedia + Interações do mouse com a Img e Figcaption </figcaption> </h4>
+  <!-- seu gráfico ou iframe atrás -->
+  <iframe src="./pages/imageFormatter.html"></iframe>
+
+  <!-- o quadro DINÂMICO, por cima mas sem bloquear nada atrás -->
+<quadro-dinamico
+  width="350px"
+  height="405px"
+  top="80px"
+  left="320px"
+  background="linear-gradient(135deg, #6b7b34, #8fae65)"
+  border-color="#336633"
+  color="#ffffff"
+  font-size="18px"
+  font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+  transition="all 0.4s ease-out"
+  movable
+  resizable
+  wrap-text
+>
+  <h2 slot="title">Quadro Didático</h2>
+  <p>Conteúdo totalmente customizável, com quebra de linha automática.
+    GEgegE
+      GEgegEEeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeGeG
+      EG
+      GEgegEEGeGeg
+      GEgegEEGeG
+        gráfico
+      gfege
+      GEgegEEGeGege
+
+      gfegee
+      GEgegEEGeG
+
+      fe
+
+    hrehreh
+    hrehreh
+    e
+    e
+    e
+
+    e
     
-    <figure style="display:inline-block; border:1px solid #ccc; padding:6px; max-width:220px; border-radius:8px; background-color:#fafafa; box-shadow:0 4px 10px rgba(0,0,0,0.1); transition:transform 0.3s;">
-      <!-- Imagem com o componente ativado através da classe "com-acoes" -->
-      <img 
-        class="com-acoes"
-        src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Atenea_Partenos_%28Museo_del_Prado_E-47%29_01_cropped.jpg" 
-        alt="Atena do Prado"
-        style="
-          width:100%; 
-          border-radius:8px; 
-          object-fit:cover;
-          box-shadow:0 0 8px rgba(0,0,0,0.3);
-          transition:transform 0.3s;"
-        onmouseover="this.style.transform='scale(1.05)'"
-        onmouseout="this.style.transform='scale(1)'">
-      <figcaption style="font-size:smaller; padding-top:6px; text-align:justify; color:#333;">
-        Detalhe da <i>Atena do Prado</i>, outra das cópias reduzidas da Partenos.<br>
-        <a href="https://pt.wikipedia.org/wiki/Museu_do_Prado" target="_blank" style="text-decoration:none; color:#3366cc;">Museu do Prado</a>
-      </figcaption>
-    </figure>
-
-    <div>
-        <div></div>
-        <div><i class="bi bi-play-btn"> Read-me</i></div>
-        <div></div>
-    </div>
-
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-
-    <!-- Inclua o script do componente no fim da página -->
-    <script src="saveActionsComponent.js"></script>
+    
+    e
+  </p>
+</quadro-dinamico>
 </body>
 </html>
